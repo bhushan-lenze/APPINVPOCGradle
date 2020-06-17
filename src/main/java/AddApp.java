@@ -1,24 +1,34 @@
 import org.openqa.selenium.By;
+import org.openqa.selenium.Proxy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class AddApp {
     public static void main(String[] args) {
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\kalbande\\Desktop\\drivers\\chromedriver.exe");
+
+        String url="http://apps.example.com/apps";
+        String directoryPath = System.getProperty("user.dir");
+        String chromedriverpath=directoryPath + "\\src\\main\\resources\\chromedriver.exe";
+        System.setProperty("webdriver.chrome.driver", chromedriverpath);
         WebDriver driver = new ChromeDriver();
-        //driver.get("https://apps.example.com/apps");
-        driver.get("https://apps.example.com/apps");
+        driver.get(url);
+        driver.manage().window().maximize();
+        WebDriverWait wait = new WebDriverWait(driver, 60);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("username")));
         System.out.println("App Inventory Opened");
         driver.findElement(By.id("username")).sendKeys("22@g.com");
         driver.findElement(By.id("password")).sendKeys("123");
         driver.findElement(By.id("kc-login")).click();
         WebElement btnplus=driver.findElement(By.xpath("//*[@class='circle-button']"));
-        WebDriverWait wait = new WebDriverWait(driver, 5);
         wait.until(ExpectedConditions.elementToBeClickable(btnplus)).click();
-        //driver.findElement(By.xpath("//*[@class='profile-photo-placeholder__button d-flex justify-content-center align-items-center']")).click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[text()='Name']")));
+        driver.findElement(By.name("name")).sendKeys("Application");
+        System.out.println("Create app page opened");
         driver.close();
         driver.quit();
 
