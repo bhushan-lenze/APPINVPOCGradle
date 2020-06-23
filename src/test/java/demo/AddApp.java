@@ -1,3 +1,5 @@
+package demo;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.Proxy;
 import org.openqa.selenium.WebDriver;
@@ -11,7 +13,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class AddApp {
     public static void main(String[] args) {
 
-        String url="http://apps.example.com/apps";
+        String url="http://apps.mosaiq.one/apps";
         String directoryPath = System.getProperty("user.dir");
         String chromedriverpath=directoryPath + "\\src\\main\\resources\\chromedriver.exe";
         System.setProperty("webdriver.chrome.driver", chromedriverpath);
@@ -21,7 +23,7 @@ public class AddApp {
         WebDriverWait wait = new WebDriverWait(driver, 60);
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("username")));
         System.out.println("App Inventory Opened");
-        driver.findElement(By.id("username")).sendKeys("22@g.com");
+        driver.findElement(By.id("username")).sendKeys("u@g.com");
         driver.findElement(By.id("password")).sendKeys("123");
         driver.findElement(By.id("kc-login")).click();
         WebElement btnplus=driver.findElement(By.xpath("//*[@class='circle-button']"));
