@@ -1,18 +1,17 @@
 package demo;
 
+import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Proxy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class AddApp {
-    public static void main(String[] args) {
+class SampleTest {
 
+    @Test
+    void testwebpage() {
         String url="http://apps.mosaiq.one/apps";
         String directoryPath = System.getProperty("user.dir");
         String chromedriverpath=directoryPath + "\\src\\main\\resources\\chromedriver.exe";
@@ -33,7 +32,5 @@ public class AddApp {
         System.out.println("Create app page opened");
         driver.close();
         driver.quit();
-
-
     }
 }
