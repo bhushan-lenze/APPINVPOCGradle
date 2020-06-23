@@ -12,7 +12,7 @@ class SampleTest {
 
     @Test
     void testwebpage() {
-        String url="http://apps.mosaiq.one/apps";
+        String url="http://apps.mosaiq.one";
         String directoryPath = System.getProperty("user.dir");
         String chromedriverpath=directoryPath + "\\src\\main\\resources\\chromedriver.exe";
         System.setProperty("webdriver.chrome.driver", chromedriverpath);
