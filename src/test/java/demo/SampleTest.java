@@ -19,11 +19,10 @@ class SampleTest {
         System.setProperty("webdriver.chrome.driver", chromedriverpath);
         //String url="http://apps.mosaiq.one";
         String url="https://store.mosaiq.one/";
-
-        driver = new ChromeDriver(options);
-        options.addArguments("--no-sandbox");
-        options.addArguments("--disable-dev-shm-usage");
-        options.addArguments("--headless");
+        driver = new ChromeDriver();
+        //options.addArguments("--no-sandbox");
+        //options.addArguments("--disable-dev-shm-usage");
+        //options.addArguments("--headless");
         driver.get(url);
         driver.manage().window().maximize();
         String currenturl=driver.getCurrentUrl();
