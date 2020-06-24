@@ -14,15 +14,14 @@ class SampleTest {
     @Test
     void testwebpage() {
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("--no-sandbox");
-        options.addArguments("--disable-dev-shm-usage");
-        options.addArguments("--headless");
-        //driver = new ChromeDriver(options);
         String directoryPath = System.getProperty("user.dir");
         String chromedriverpath=directoryPath + "\\src\\main\\resources\\chromedriver.exe";
         System.setProperty("webdriver.chrome.driver", chromedriverpath);
         String url="http://apps.mosaiq.one";
-        driver = new ChromeDriver();
+        driver = new ChromeDriver(options);
+        options.addArguments("--no-sandbox");
+        options.addArguments("--disable-dev-shm-usage");
+        options.addArguments("--headless");
         driver.get(url);
         driver.manage().window().maximize();
         WebDriverWait wait = new WebDriverWait(driver, 120);
