@@ -17,18 +17,16 @@ class SampleTest {
         String chromedriverpath=directoryPath + "\\src\\test\\java\\resources\\chromedriver.exe";
         System.setProperty("webdriver.chrome.driver", chromedriverpath);
         //AWS deployed url execution
-        /*String url="https://store.mosaiq.one/";
+        String url="https://store.mosaiq.one/";
         driver = new ChromeDriver();
-        //options.addArguments("--no-sandbox");
-        //options.addArguments("--disable-dev-shm-usage");
-        //options.addArguments("--headless");
         driver.get(url);
         driver.manage().window().maximize();
         String currenturl=driver.getCurrentUrl();
-        System.out.println(currenturl);*/
+        System.out.println(currenturl);
+        //AWS deployed url execution
 
         //Locally available url execution
-        String url="http://apps.mosaiq.one";
+        /*String url="http://apps.mosaiq.one";
         driver.get(url);
         driver.manage().window().maximize();
         WebDriverWait wait = new WebDriverWait(driver, 120);
@@ -41,7 +39,9 @@ class SampleTest {
         wait.until(ExpectedConditions.elementToBeClickable(btnplus)).click();
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[text()='Name']")));
         driver.findElement(By.name("name")).sendKeys("Application");
-        System.out.println("Create app page opened");
+        System.out.println("Create app page opened");*/
+        //Locally available url execution
+
         driver.close();
         driver.quit();
     }
