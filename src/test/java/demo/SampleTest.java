@@ -17,21 +17,21 @@ class SampleTest {
         String chromedriverpath=directoryPath + "\\src\\test\\java\\resources\\chromedriver.exe";
         System.setProperty("webdriver.chrome.driver", chromedriverpath);
         //AWS deployed url execution
-        /*String url="https://store.mosaiq.one/";
+        String url="https://store.mosaiq.one/";
         driver = new ChromeDriver();
         driver.get(url);
         driver.manage().window().maximize();
         String currenturl=driver.getCurrentUrl();
-        System.out.println(currenturl);*/
+        System.out.println(currenturl);
         //AWS deployed url execution
 
         //Locally available url execution
-        String url="http://apps.mosaiq.one";
+        /*String url="http://apps.mosaiq.one";
         driver.get(url);
         driver.manage().window().maximize();
         String currenturl=driver.getCurrentUrl();
         System.out.println(currenturl);
-        /*WebDriverWait wait = new WebDriverWait(driver, 120);
+        WebDriverWait wait = new WebDriverWait(driver, 120);
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("username")));
         System.out.println("App Inventory Opened");
         driver.findElement(By.id("username")).sendKeys("u@g.com");
