@@ -13,12 +13,11 @@ class SampleTest {
     public WebDriver driver;
     @Test
     void testwebpage() {
-        ChromeOptions options = new ChromeOptions();
         String directoryPath = System.getProperty("user.dir");
         String chromedriverpath=directoryPath + "\\src\\test\\java\\resources\\chromedriver.exe";
         System.setProperty("webdriver.chrome.driver", chromedriverpath);
-        //String url="http://apps.mosaiq.one";
-        String url="https://store.mosaiq.one/";
+        //AWS deployed url execution
+        /*String url="https://store.mosaiq.one/";
         driver = new ChromeDriver();
         //options.addArguments("--no-sandbox");
         //options.addArguments("--disable-dev-shm-usage");
@@ -26,8 +25,13 @@ class SampleTest {
         driver.get(url);
         driver.manage().window().maximize();
         String currenturl=driver.getCurrentUrl();
-        System.out.println(currenturl);
-        /*WebDriverWait wait = new WebDriverWait(driver, 120);
+        System.out.println(currenturl);*/
+
+        //Locally available url execution
+        String url="http://apps.mosaiq.one";
+        driver.get(url);
+        driver.manage().window().maximize();
+        WebDriverWait wait = new WebDriverWait(driver, 120);
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("username")));
         System.out.println("App Inventory Opened");
         driver.findElement(By.id("username")).sendKeys("u@g.com");
@@ -37,7 +41,7 @@ class SampleTest {
         wait.until(ExpectedConditions.elementToBeClickable(btnplus)).click();
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[text()='Name']")));
         driver.findElement(By.name("name")).sendKeys("Application");
-        System.out.println("Create app page opened");*/
+        System.out.println("Create app page opened");
         driver.close();
         driver.quit();
     }
