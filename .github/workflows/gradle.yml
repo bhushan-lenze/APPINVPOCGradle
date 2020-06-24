@@ -7,7 +7,7 @@ on:
 jobs:
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     steps:
     - uses: actions/checkout@v2
@@ -19,4 +19,3 @@ jobs:
       run: chmod +x gradlew
     - name: Build and run Selenium Test with Gradle
       run: ./gradlew test --info # Run our tests using Gradle
-      working-directory: ./src/test/java/demo/SampleTest
