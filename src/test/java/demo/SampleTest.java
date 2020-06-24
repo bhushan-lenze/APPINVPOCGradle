@@ -1,22 +1,30 @@
 package demo;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 class SampleTest {
-
+    private WebDriver driver;
     @Test
     void testwebpage() {
-        String url="http://apps.mosaiq.one";
-        String directoryPath = System.getProperty("user.dir");
+        WebDriverManager.chromedriver().setup();
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--no-sandbox");
+        options.addArguments("--disable-dev-shm-usage");
+        options.addArguments("--headless");
+        driver = new ChromeDriver(options);
+        String url="http://apps.mosaiq.one/apps";
+        /*String directoryPath = System.getProperty("user.dir");
         String chromedriverpath=directoryPath + "\\src\\main\\resources\\chromedriver.exe";
         System.setProperty("webdriver.chrome.driver", chromedriverpath);
-        WebDriver driver = new ChromeDriver();
+        WebDriver driver = new ChromeDriver();*/
         driver.get(url);
         driver.manage().window().maximize();
         WebDriverWait wait = new WebDriverWait(driver, 60);
