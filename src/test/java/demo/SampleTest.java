@@ -22,7 +22,7 @@ class SampleTest {
         String chromedriverpath=directoryPath + "\\src\\main\\resources\\chromedriver.exe";
         System.setProperty("webdriver.chrome.driver", chromedriverpath);
         String url="http://apps.mosaiq.one";
-        driver = new ChromeDriver();
+        driver = new ChromeDriver(options);
         driver.get(url);
         driver.manage().window().maximize();
         WebDriverWait wait = new WebDriverWait(driver, 120);
