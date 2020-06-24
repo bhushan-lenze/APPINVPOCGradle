@@ -15,7 +15,7 @@ class SampleTest {
     void testwebpage() {
         ChromeOptions options = new ChromeOptions();
         String directoryPath = System.getProperty("user.dir");
-        String chromedriverpath=directoryPath + "\\src\\main\\resources\\chromedriver.exe";
+        String chromedriverpath=directoryPath + "\\src\\test\\java\\resources\\chromedriver.exe";
         System.setProperty("webdriver.chrome.driver", chromedriverpath);
         //String url="http://apps.mosaiq.one";
         String url="https://store.mosaiq.one/";
