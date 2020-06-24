@@ -13,20 +13,19 @@ class SampleTest {
     public WebDriver driver;
     @Test
     void testwebpage() {
-        //WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--no-sandbox");
         options.addArguments("--disable-dev-shm-usage");
         options.addArguments("--headless");
-        driver = new ChromeDriver(options);
-        String url="http://apps.mosaiq.one/apps";
+        //driver = new ChromeDriver(options);
         String directoryPath = System.getProperty("user.dir");
         String chromedriverpath=directoryPath + "\\src\\main\\resources\\chromedriver.exe";
         System.setProperty("webdriver.chrome.driver", chromedriverpath);
-        //driver = new ChromeDriver();
+        String url="http://apps.mosaiq.one";
+        driver = new ChromeDriver();
         driver.get(url);
         driver.manage().window().maximize();
-        WebDriverWait wait = new WebDriverWait(driver, 60);
+        WebDriverWait wait = new WebDriverWait(driver, 120);
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("username")));
         System.out.println("App Inventory Opened");
         driver.findElement(By.id("username")).sendKeys("u@g.com");
